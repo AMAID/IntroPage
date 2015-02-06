@@ -17,7 +17,7 @@
         <div data-layer="5"><img data-layer-img src="5.png" /><img data-layer-text src="5t.png" /></div>
         <div data-layer="6"><img data-layer-img src="enter.png" /><img data-layer-text src="entert.png" /></div>
     </div>
-    <audio src="bgm.mp3" autoplay ></audio>
+    <audio src="bgm.mp3" id="bgm"></audio>
     <script>
         var layout = {
             "layer-in": 3000,
@@ -49,7 +49,8 @@
         }
 
         setTimeout("play(1)", 1000)
-
+        var x = document.getElementById("bgm");
+        x.play()
     </script>
 </body>
 </html>
