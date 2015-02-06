@@ -30,9 +30,6 @@
                 var height = $("html").height() - $("[data-layer='" + index + "'] [data-layer-img]").height()
                 $("[data-layer='" + index + "'] [data-layer-text]").css("max-height", height)
                 var text_top = (height - $("[data-layer='" + index + "'] [data-layer-text]").height()) / 2
-                console.log(height)
-                console.log($("[data-layer='" + index + "'] [data-layer-text]").height())
-                console.log($("[data-layer='" + index + "'] [data-layer-text]").width())
             } else {
                 var text_top = 0
             }
@@ -53,7 +50,7 @@
     <script type="text/javascript">
         function fakeClick(fn) {
             var $a = $('<a href="#" id="fakeClick"></a>');
-                $a.bind("click", function(e) {
+                $a.on("click", function(e) {
                     e.preventDefault();
                     fn();
                 });
