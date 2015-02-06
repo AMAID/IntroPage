@@ -49,8 +49,11 @@
         }
 
         setTimeout("play(1)", 1000)
-        var x = document.getElementById("bgm");
-        x.play()
+        $("body").on("click", function () {
+            var x = document.getElementById("bgm");
+            x.play()
+        })
+        $("body").click()
     </script>
 </body>
 </html>
