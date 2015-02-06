@@ -117,5 +117,4 @@ var Zepto = function () { function L(t) { return null == t ? String(t) : j[S.cal
         return this
     }
 
-    testEl = null
-})(Zepto)
+    testEl = null})(Zepto)
