@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <button id="play" style="z-index:1000;position:fixed">play</button>
     <div id="layers">
         <div data-layer="1"><img data-layer-img src="1.png" /><img data-layer-text src="1t.png" /></div>
         <div data-layer="2"><img data-layer-img src="2.png" /><img data-layer-text src="2t.png" /></div>
@@ -30,6 +31,9 @@
                 var height = $("html").height() - $("[data-layer='" + index + "'] [data-layer-img]").height()
                 $("[data-layer='" + index + "'] [data-layer-text]").css("max-height", height)
                 var text_top = (height - $("[data-layer='" + index + "'] [data-layer-text]").height()) / 2
+                console.log(height)
+                console.log($("[data-layer='" + index + "'] [data-layer-text]").height())
+                console.log($("[data-layer='" + index + "'] [data-layer-text]").width())
             } else {
                 var text_top = 0
             }
@@ -46,11 +50,13 @@
         }
 
         var x = document.getElementById("bgm");
+        $("#play").click(function(){x.play()})
     </script>
     <script type="text/javascript">
+    /*
         function fakeClick(fn) {
             var $a = $('<a href="#" id="fakeClick"></a>');
-                $a.on("click", function(e) {
+                $a.bind("click", function(e) {
                     e.preventDefault();
                     fn();
                 });
@@ -79,6 +85,7 @@
                 x.play()
             });
         });
+*/
     </script>
 </body>
 </html>
