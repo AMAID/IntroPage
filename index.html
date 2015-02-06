@@ -48,7 +48,6 @@
             $("[data-layer='" + index + "'] [data-layer-text]").animate({ "top": text_top }, layout["text-in"], 'ease-out', function () { })
         }
 
-        setTimeout("play(1)", 1000)
         var x = document.getElementById("bgm");
     </script>
     <script type="text/javascript">
@@ -79,6 +78,7 @@
             var video = $("#someVideo").get(0);
 
             fakeClick(function() {
+                setTimeout("play(1)", 1000)
                 x.play()
             });
         });
