@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>欢迎</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <script src="zepto.js"></script>
+    <link href="mobile.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="layers">
+        <div data-layer="1"><img data-layer-img src="1.png" /><img data-layer-text src="1t.png" /></div>
+        <div data-layer="2"><img data-layer-img src="2.png" /><img data-layer-text src="2t.png" /></div>
+        <div data-layer="3"><img data-layer-img src="3.png" /><img data-layer-text src="3t.png" /></div>
+        <div data-layer="4"><img data-layer-img src="4.png" /><img data-layer-text src="4t.png" /></div>
+        <div data-layer="5"><img data-layer-img src="5.png" /><img data-layer-text src="5t.png" /></div>
+        <div data-layer="6"><img data-layer-img src="enter.png" /><img data-layer-text src="entert.png" /></div>
+    </div>
+    <audio src="bgm.mp3" autoplay ></audio>
+    <script>
+        var layout = {
+            "layer-in": 3000,
+            "layer-out": 2000,
+            "text-in": 3000,
+            "layer-delay": 1000
+        }
+        function play(index) {
+            if (index != 6) {
+                var height = $("html").height() - $("[data-layer='" + index + "'] [data-layer-img]").height()
+                $("[data-layer='" + index + "'] [data-layer-text]").css("max-height", height)
+                var text_top = (height - $("[data-layer='" + index + "'] [data-layer-text]").height()) / 2
+                console.log(height)
+                console.log($("[data-layer='" + index + "'] [data-layer-text]").height())
+                console.log($("[data-layer='" + index + "'] [data-layer-text]").width())
+            } else {
+                var text_top = 0
+            }
+            $("[data-layer='" + index + "']").animate({ "opacity": 1 }, layout["layer-in"], 'ease-out', function () {
+                if ($("[data-layer='" + index + "']").attr("data-layer") != "6") {
+                    $("[data-layer='" + index + "']").animate({ "opacity": 0 }, layout["layer-out"], 'ease-out', function () {
+                        play(index + 1)
+
+                    }, layout["layer-delay"])
+                }
+            })
+
+            $("[data-layer='" + index + "'] [data-layer-text]").animate({ "top": text_top }, layout["text-in"], 'ease-out', function () { })
+        }
+
+        setTimeout("play(1)", 1000)
+
+    </script>
+</body>
+</html>
